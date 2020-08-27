@@ -2,6 +2,7 @@
 Module for testing the Terraform Cloud API Endpoint: Policy Sets.
 """
 
+import time
 from .base import TestTFCBaseTestCase
 
 
@@ -136,6 +137,7 @@ class TestTFCPolicySets(TestTFCBaseTestCase):
         shown_pol_set_version = self._api.policy_sets.show_policy_set_version(\
             pol_set_version["id"])["data"]
 
-        # Confirm the upload is completed and the policy set is ready to usek
+        # Confirm the upload is completed and the policy set is ready to use
+        time.sleep(5)
         self.assertEqual("ready", shown_pol_set_version["attributes"]["status"])
         self._api.policy_sets.destroy(created_policy_set_id)
