@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  deployable_check:
+  lint_docs_coverage_check:
     docker:
       - image: eklhad/terrasnek-circleci:0.1
     working_directory: ~/terrasnek
@@ -17,4 +17,4 @@ workflows:
   version: 2
   test_and_deploy:
     jobs:
-      - deployable_check
+      - lint_docs_coverage_check
