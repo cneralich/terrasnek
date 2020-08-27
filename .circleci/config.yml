@@ -10,6 +10,8 @@ jobs:
           name: check the code meets deployable standards
           command: |
             make lint
+            make docs
+            make coverage
             make contributor_check
 workflows:
   version: 2
