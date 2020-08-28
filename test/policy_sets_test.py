@@ -139,5 +139,7 @@ class TestTFCPolicySets(TestTFCBaseTestCase):
 
         # Confirm the upload is completed and the policy set is ready to use
         time.sleep(5)
-        self.assertEqual("ready", shown_pol_set_version["attributes"]["status"])
+        ready_or_pending = \
+            shown_pol_set_version["attributes"]["status"] in ["pending", "ready"]
+        self.assertTrue(ready_or_pending)
         self._api.policy_sets.destroy(created_policy_set_id)

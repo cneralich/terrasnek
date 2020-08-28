@@ -41,7 +41,7 @@ class TestTFCConfigVersions(TestTFCBaseTestCase):
                 break
         self.assertTrue(found_conf_ver)
 
-        # Confirm the config version status is "pending" as well
+        # Confirm the config version status is "pending" or "uploaded" as well
         uploaded_or_pending = \
             all_config_versions[0]["attributes"]["status"] in ["pending", "uploaded"]
         self.assertTrue(uploaded_or_pending)
